@@ -27,12 +27,10 @@ struct Header: View {
                 }
                 
             }
-            .padding(.top, 50)
-            .padding(.bottom, 20)
+            .padding(.top, 40)
         }
         .frame(width: UIScreen.main.bounds.width,
                height: 200)
-        .offset(y: -50)
     }
 }
 

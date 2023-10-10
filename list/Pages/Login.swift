@@ -8,33 +8,39 @@
 import SwiftUI
 
 struct Login: View {
-    @State var email = ""
-    @State var password = ""
+    @StateObject var viewModel = LoginViewModel()
     
     var body: some View {
         NavigationView {
             VStack {
                 // Header
                 Header()
+                    .offset(y: -50)
                 
                 // Login Form
                 Form {
-                    TextField("Email", text: $email)
+                    if !viewModel.errorMsg.isEmpty {
+                        Text(viewModel.errorMsg)
+                            .foregroundColor(.red)
+                    }
+                    
+                    TextField("Email", text: $viewModel.email)
                         .textFieldStyle(DefaultTextFieldStyle())
-                    SecureField("Password", text: $password)
+                        .autocorrectionDisabled()
+                        .autocapitalization(/*@START_MENU_TOKEN@*/.none/*@END_MENU_TOKEN@*/)
+                    
+                    SecureField("Password", text: $viewModel.password)
                         .textFieldStyle(DefaultTextFieldStyle())
                     
-                    Button {
-                        // Log in
-                    } label: {
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 10.0)
-                                .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
-                            Text("Log In")
-                                .foregroundColor(.white)
-                                .bold()
-                        }
+                    ListButton(
+                        title: "Log In",
+                        bgColor: .blue
+                    ) {
+                        // Log in action
+                        viewModel.login()
                     }
+                    .padding()
+                    
                 }
 //                .scrollContentBackground(.hidden)
                 
@@ -46,6 +52,7 @@ struct Login: View {
                 .padding(.bottom, 50)
                 
                 Spacer()
+                
             }
         }
         
