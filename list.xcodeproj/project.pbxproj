@@ -32,6 +32,7 @@
 		2EF874F52AD5EED400C15DBC /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF874F42AD5EED400C15DBC /* ItemModel.swift */; };
 		2EF874F72AD5F08F00C15DBC /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF874F62AD5F08E00C15DBC /* Header.swift */; };
 		2EF874F92AD6011200C15DBC /* ListButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF874F82AD6011200C15DBC /* ListButton.swift */; };
+		2EF874FB2AD60DCD00C15DBC /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF874FA2AD60DCD00C15DBC /* Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 		2EF874F42AD5EED400C15DBC /* ItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemModel.swift; sourceTree = "<group>"; };
 		2EF874F62AD5F08E00C15DBC /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		2EF874F82AD6011200C15DBC /* ListButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListButton.swift; sourceTree = "<group>"; };
+		2EF874FA2AD60DCD00C15DBC /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 				2EF874C32AD5EBB700C15DBC /* Pages */,
 				2EF874C12AD5EA2A00C15DBC /* GoogleService-Info.plist */,
 				2E7950562AD4E612009C3619 /* listApp.swift */,
+				2EF874FA2AD60DCD00C15DBC /* Extension.swift */,
 				2E79505A2AD4E615009C3619 /* Assets.xcassets */,
 				2E79505C2AD4E615009C3619 /* Preview Content */,
 			);
@@ -245,6 +248,7 @@
 				2EF874CD2AD5ECE900C15DBC /* Login.swift in Sources */,
 				2EF874ED2AD5EE7400C15DBC /* LoginViewModel.swift in Sources */,
 				2EF874E72AD5EE5200C15DBC /* ProfileViewModel.swift in Sources */,
+				2EF874FB2AD60DCD00C15DBC /* Extension.swift in Sources */,
 				2EF874CF2AD5ECF400C15DBC /* Register.swift in Sources */,
 				2EF874C72AD5EC9100C15DBC /* Profile.swift in Sources */,
 				2E7950572AD4E612009C3619 /* listApp.swift in Sources */,
