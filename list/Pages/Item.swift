@@ -19,6 +19,7 @@ struct Item: View {
                 viewModel.toggleIsDone(task: task)
             } label: {
                 Image(systemName: task.isDone ? "checkmark.circle.fill" : "circle")
+                    .foregroundColor(.accentColor)
             }
                         
             VStack (alignment: .leading) {
