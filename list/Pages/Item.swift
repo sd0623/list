@@ -8,11 +8,40 @@
 import SwiftUI
 
 struct Item: View {
+    @StateObject var viewModel = ItemViewModel()
+    
+    let task: ItemModel
+    
     var body: some View {
-        Text("Item")
+        HStack {
+            Button {
+                // update task
+                viewModel.toggleIsDone(task: task)
+            } label: {
+                Image(systemName: task.isDone ? "checkmark.circle.fill" : "circle")
+            }
+            
+            Spacer()
+            
+            VStack (alignment: .leading) {
+                Text(task.title)
+                    .font(.body)
+                
+                Text("\(Date(timeIntervalSince1970: task.dueDate).formatted(date: .abbreviated, time: .shortened))")
+                    .font(.footnote)
+                    .foregroundColor(Color(.secondaryLabel))
+            }
+            
+        }
     }
 }
 
 #Preview {
-    Item()
+    Item(task: .init(
+        id: "123",
+        title: "Study",
+        dueDate: Date().timeIntervalSince1970,
+        createdDate: Date().timeIntervalSince1970,
+        isDone: false
+    ))
 }

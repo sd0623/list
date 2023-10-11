@@ -11,4 +11,8 @@ import Foundation
 /// Secondary tab
 class ItemViewModel: ObservableObject {
     init() {}
+    
+    func toggleIsDone(task: ItemModel) {
+        
+    }
 }

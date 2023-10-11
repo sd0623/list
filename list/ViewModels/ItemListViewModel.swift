@@ -13,4 +13,8 @@ class ItemListViewModel: ObservableObject {
     @Published var showAddItemView = false
     
     init() {}
+    
+    func delete(id: String) {
+        
+    }
 }

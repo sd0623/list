@@ -5,15 +5,17 @@
 //  Created by Sathwika Deegutla on 10/10/23.
 //
 
+import FirebaseFirestoreSwift
 import SwiftUI
 
 struct ItemList: View {
     @StateObject var viewModel = ItemListViewModel()
-    
-    private let userId: String
-    
+    @FirestoreQuery var tasks: [ItemModel]
+        
     init(userId: String) {
-        self.userId = userId
+        // users/<id>/tasks/<entries>
+        self._tasks = FirestoreQuery(
+            collectionPath: "users/\(userId)/tasks")
     }
     
     var body: some View {
@@ -23,7 +25,19 @@ struct ItemList: View {
 //                Header(size: 30.0, height: 100)
 //                    .offset(y: -90)
                 
-                Text("Welcome to your account!")
+                List(tasks) { task in
+                    Item(task: task)
+                        .swipeActions{
+                            Button {
+                                // delete
+                                viewModel.delete(id: task.id)
+                            } label: {
+                                Image(systemName: "trash.fill")
+                                    .foregroundColor(.red)
+                            }
+                        }
+                }
+                .listStyle(PlainListStyle())
             }
             .navigationTitle("List")
             .toolbar{
@@ -42,5 +56,6 @@ struct ItemList: View {
 }
 
 #Preview {
-    ItemList(userId: "")
+    // default user id
+    ItemList(userId: "JQVEb57P6CaXYr6PWNjzZioODLt2")
 }
