@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+/// ViewModel for list of items
+/// Primary tab
+class ItemListViewModel: ObservableObject {
+    @Published var showAddItemView = false
+    
+    init() {}
+}

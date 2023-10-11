@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct Header: View {
+    let size: Double
+    let height: Double
+    
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 25.0)
@@ -17,11 +20,11 @@ struct Header: View {
             VStack {
                 HStack {
                     Image(systemName: "checkmark")
-                        .font(.system(size: 80))
+                        .font(.system(size: size))
                         .foregroundColor(.accentColor)
                     
                     Text("List")
-                        .font(.system(size: 80))
+                        .font(.system(size: size))
                         .foregroundColor(.accentColor)
                         .bold()
                 }
@@ -30,10 +33,10 @@ struct Header: View {
             .padding(.top, 40)
         }
         .frame(width: UIScreen.main.bounds.width,
-               height: 200)
+               height: height)
     }
 }
 
 #Preview {
-    Header()
+    Header(size: 30.0, height: 100.0)
 }

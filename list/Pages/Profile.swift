@@ -8,8 +8,19 @@
 import SwiftUI
 
 struct Profile: View {
+    @StateObject var viewModel = ProfileViewModel()
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView{
+            
+            VStack {
+//                Header(size: 30.0, height: 100)
+//                    .offset(y: -90)
+                
+                Text("Welcome to your account!")
+            }
+            .navigationTitle("Profile")
+        }
     }
 }
 

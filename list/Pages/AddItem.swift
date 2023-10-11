@@ -8,11 +8,52 @@
 import SwiftUI
 
 struct AddItem: View {
+    @StateObject var viewModel = AddItemViewModel()
+    @Binding var addItemPresented: Bool
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Text("Add Task")
+                .font(.system(size: 32))
+                .bold()
+                .padding(.top, 80)
+            
+            Form {
+                // Title
+                TextField("Title", text: $viewModel.title)
+                    .textFieldStyle(DefaultTextFieldStyle())
+                
+                // Due Date
+                DatePicker("Due Date", selection: $viewModel.dueDate)
+                    .datePickerStyle(GraphicalDatePickerStyle())
+                
+                // Button
+                ListButton(
+                    title: "Add",
+                    bgColor: .blue)
+                {
+                    // add task
+                    if viewModel.canAdd {
+                        viewModel.add()
+                        addItemPresented = false
+                    } else {
+                        viewModel.showAlert = true
+                    }
+                    
+                }
+                .padding()
+            }
+            .alert(isPresented: $viewModel.showAlert) {
+                Alert(title: Text("Error"), message: Text("Please fill all fields and select today or future due date!"))
+            }
+        }
     }
 }
 
 #Preview {
-    AddItem()
+    AddItem(addItemPresented: Binding(get: {
+        return true
+    }, set: { _ in
+        
+    }))
 }

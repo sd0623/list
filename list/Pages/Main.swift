@@ -13,9 +13,23 @@ struct Main: View {
     var body: some View {
         if viewModel.isSignedIn, !viewModel.currentUserId.isEmpty {
             // signed in, list view
-            ItemList()
+            signedInView
         } else {
             Login()
+        }
+    }
+    
+    @ViewBuilder
+    var signedInView: some View {
+        TabView {
+            ItemList(userId: viewModel.currentUserId)
+                .tabItem {
+                    Label("Home", systemImage: "house")
+                }
+            Profile()
+                .tabItem {
+                    Label("Profile", systemImage: "person.circle")
+                }
         }
     }
 }

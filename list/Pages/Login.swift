@@ -14,7 +14,7 @@ struct Login: View {
         NavigationView {
             VStack {
                 // Header
-                Header()
+                Header(size: 80.0, height: 200)
                     .offset(y: -50)
                 
                 // Login Form

@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+/// ViewModel for each item
+/// Secondary tab
+class ItemViewModel: ObservableObject {
+    init() {}
+}
