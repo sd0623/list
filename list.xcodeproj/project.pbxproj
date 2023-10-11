@@ -33,6 +33,7 @@
 		2EF874F72AD5F08F00C15DBC /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF874F62AD5F08E00C15DBC /* Header.swift */; };
 		2EF874F92AD6011200C15DBC /* ListButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF874F82AD6011200C15DBC /* ListButton.swift */; };
 		2EF874FB2AD60DCD00C15DBC /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF874FA2AD60DCD00C15DBC /* Extension.swift */; };
+		2EF874FD2AD64B3900C15DBC /* launch_screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EF874FC2AD64B3900C15DBC /* launch_screen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		2EF874F62AD5F08E00C15DBC /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		2EF874F82AD6011200C15DBC /* ListButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListButton.swift; sourceTree = "<group>"; };
 		2EF874FA2AD60DCD00C15DBC /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		2EF874FC2AD64B3900C15DBC /* launch_screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = launch_screen.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				2E7950562AD4E612009C3619 /* listApp.swift */,
 				2EF874FA2AD60DCD00C15DBC /* Extension.swift */,
 				2E79505A2AD4E615009C3619 /* Assets.xcassets */,
+				2EF874FC2AD64B3900C15DBC /* launch_screen.storyboard */,
 				2E79505C2AD4E615009C3619 /* Preview Content */,
 			);
 			path = list;
@@ -221,6 +224,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E79505E2AD4E615009C3619 /* Preview Assets.xcassets in Resources */,
+				2EF874FD2AD64B3900C15DBC /* launch_screen.storyboard in Resources */,
 				2E79505B2AD4E615009C3619 /* Assets.xcassets in Resources */,
 				2EF874C22AD5EA2B00C15DBC /* GoogleService-Info.plist in Resources */,
 			);
