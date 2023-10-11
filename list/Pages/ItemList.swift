@@ -9,13 +9,19 @@ import FirebaseFirestoreSwift
 import SwiftUI
 
 struct ItemList: View {
-    @StateObject var viewModel = ItemListViewModel()
+    @StateObject var viewModel: ItemListViewModel
+    // live listen
     @FirestoreQuery var tasks: [ItemModel]
         
     init(userId: String) {
         // users/<id>/tasks/<entries>
         self._tasks = FirestoreQuery(
-            collectionPath: "users/\(userId)/tasks")
+            collectionPath: "users/\(userId)/tasks"
+        )
+        
+        self._viewModel = StateObject(
+            wrappedValue: ItemListViewModel(userId: userId)
+        )
     }
     
     var body: some View {
@@ -28,12 +34,12 @@ struct ItemList: View {
                 List(tasks) { task in
                     Item(task: task)
                         .swipeActions{
-                            Button {
+                            Button{
                                 // delete
                                 viewModel.delete(id: task.id)
                             } label: {
                                 Image(systemName: "trash.fill")
-                                    .foregroundColor(.red)
+                                    .tint(.red)
                             }
                         }
                 }

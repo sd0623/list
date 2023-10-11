@@ -20,9 +20,7 @@ struct Item: View {
             } label: {
                 Image(systemName: task.isDone ? "checkmark.circle.fill" : "circle")
             }
-            
-            Spacer()
-            
+                        
             VStack (alignment: .leading) {
                 Text(task.title)
                     .font(.body)
