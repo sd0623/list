@@ -14,7 +14,7 @@ struct Login: View {
         NavigationView {
             VStack {
                 // Header
-                Header(size: 80.0, height: 200)
+                Header()
                     .offset(y: -50)
                 
                 // Login Form
@@ -42,7 +42,7 @@ struct Login: View {
                     .padding()
                     
                 }
-//                .scrollContentBackground(.hidden)
+                .scrollContentBackground(.hidden)
                 
                 // Register
                 VStack {

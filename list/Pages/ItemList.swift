@@ -12,6 +12,8 @@ struct ItemList: View {
     @StateObject var viewModel: ItemListViewModel
     // live listen
     @FirestoreQuery var tasks: [ItemModel]
+    
+    @Environment(\.colorScheme) private var colorScheme
         
     init(userId: String) {
         // users/<id>/tasks/<entries>
@@ -32,7 +34,7 @@ struct ItemList: View {
 //                    .offset(y: -90)
                 
                 List(tasks) { task in
-                    Item(task: task)
+                    Item(task: task, taskColor: task.dueDate < Date().timeIntervalSince1970 ? Color(.red) : defaultColor)
                         .swipeActions{
                             Button{
                                 // delete
@@ -57,6 +59,17 @@ struct ItemList: View {
             .sheet(isPresented: $viewModel.showAddItemView){
                 AddItem(addItemPresented: $viewModel.showAddItemView)
             }
+        }
+    }
+    
+    private var defaultColor: Color {
+        switch colorScheme {
+            case .light:
+                return Color(.black)
+            case .dark:
+                return Color(.white)
+            @unknown default:
+                return Color(.white)
         }
     }
 }

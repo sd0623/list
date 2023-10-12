@@ -48,6 +48,7 @@ struct Profile: View {
                 Text(user.name)
             }
             .padding()
+            .font(.system(size: 20))
             
             HStack {
                 Text("Email: ")
@@ -55,6 +56,7 @@ struct Profile: View {
                 Text(user.email)
             }
             .padding()
+            .font(.system(size: 20))
             
             HStack {
                 Text("Joined: ")
@@ -62,6 +64,17 @@ struct Profile: View {
                 Text("\(Date(timeIntervalSince1970: user.joined).formatted(date: .abbreviated, time: .shortened))")
             }
             .padding()
+            .font(.system(size: 20))
+            
+//            HStack {
+//                Text("Streak: ")
+//                    .bold()
+//                Text(String(user.streak))
+//            }
+//            .padding()
+//            .font(.system(size: 20))
+//            
+            // Display images
             
         }
         .padding()
@@ -73,6 +86,7 @@ struct Profile: View {
             }
         }
         .padding()
+        .scrollContentBackground(.hidden)
         
         Spacer()
     }

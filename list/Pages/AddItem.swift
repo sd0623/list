@@ -18,10 +18,12 @@ struct AddItem: View {
                 .bold()
                 .padding(.top, 80)
             
+            Spacer()
             Form {
                 // Title
                 TextField("Title", text: $viewModel.title)
                     .textFieldStyle(DefaultTextFieldStyle())
+                    .padding()
                 
                 // Due Date
                 DatePicker("Due Date", selection: $viewModel.dueDate)
@@ -46,6 +48,7 @@ struct AddItem: View {
             .alert(isPresented: $viewModel.showAlert) {
                 Alert(title: Text("Error"), message: Text("Please fill all fields and select today or future due date!"))
             }
+            .scrollContentBackground(.hidden)
         }
     }
 }

@@ -11,6 +11,7 @@ struct Item: View {
     @StateObject var viewModel = ItemViewModel()
     
     let task: ItemModel
+    var taskColor: Color
     
     var body: some View {
         HStack {
@@ -24,7 +25,9 @@ struct Item: View {
                         
             VStack (alignment: .leading) {
                 Text(task.title)
-                    .font(.body)
+                    .font(.system(size: 25))
+                    .foregroundColor(taskColor)
+                
                 
                 Text("\(Date(timeIntervalSince1970: task.dueDate).formatted(date: .abbreviated, time: .shortened))")
                     .font(.footnote)
@@ -42,5 +45,5 @@ struct Item: View {
         dueDate: Date().timeIntervalSince1970,
         createdDate: Date().timeIntervalSince1970,
         isDone: false
-    ))
+    ), taskColor: .primary)
 }

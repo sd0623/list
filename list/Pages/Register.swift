@@ -13,7 +13,7 @@ struct Register: View {
     var body: some View {
         VStack {
             // Header
-            Header(size: 80.0, height: 200)
+            Header()
                 .offset(y: -90)
             
             // Register form
@@ -45,6 +45,7 @@ struct Register: View {
                 .padding()
                 
             }
+            .scrollContentBackground(.hidden)
             
             Spacer()
         }
