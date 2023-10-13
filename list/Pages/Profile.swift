@@ -70,6 +70,11 @@ struct Profile: View {
                 Text("Streak: ")
                     .bold()
                 Text(String(user.streak))
+                Image(systemName: "flame.fill")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .foregroundColor(.red)
+                    .frame(width: 20, height: 20)
             }
             .padding(.bottom, 10)
             .font(.system(size: 20))
