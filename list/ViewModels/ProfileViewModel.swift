@@ -30,13 +30,12 @@ class ProfileViewModel: ObservableObject {
                     id: data["id"] as? String ?? "",
                     name: data["name"] as? String ?? "",
                     email: data["email"] as? String ?? "",
-                    joined: data["joined"] as? TimeInterval ?? 0,
-                    streak: data["streak"] as? Int ?? 0,
-                    images: data["images"] as? [String] ?? [""]
+                    joined: data["joined"] as? TimeInterval ?? 0
                 )
             }
         }
     }
+    
     
     func logout() {
         do {

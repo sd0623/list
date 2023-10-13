@@ -44,6 +44,6 @@ struct Item: View {
         title: "Study",
         dueDate: Date().timeIntervalSince1970,
         createdDate: Date().timeIntervalSince1970,
-        isDone: false
+        isDone: true
     ), taskColor: .primary)
 }

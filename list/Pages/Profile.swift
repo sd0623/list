@@ -66,13 +66,13 @@ struct Profile: View {
             .padding()
             .font(.system(size: 20))
             
-            HStack {
-                Text("Streak: ")
-                    .bold()
-                Text(String(user.streak))
-            }
-            .padding()
-            .font(.system(size: 20))
+//            HStack {
+//                Text("Streak: ")
+//                    .bold()
+//                Text(String(user.streak))
+//            }
+//            .padding()
+//            .font(.system(size: 20))
 //            
             // Display images
             

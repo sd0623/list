@@ -12,6 +12,4 @@ struct User: Codable {
     let name: String
     let email: String
     let joined: TimeInterval
-    let streak: Int
-    let images: [String]
 }
