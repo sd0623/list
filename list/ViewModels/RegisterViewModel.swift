@@ -36,8 +36,10 @@ class RegisterViewModel: ObservableObject {
         let newUser = User(id: id,
                            name: name,
                            email: email,
-                           joined: Date().timeIntervalSince1970)
-        
+                           joined: Date().timeIntervalSince1970,
+                           streak: 0,
+                           images: [""])
+            
         let db = Firestore.firestore()
         
         db.collection("users")
