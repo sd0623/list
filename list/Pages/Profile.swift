@@ -37,7 +37,7 @@ struct Profile: View {
             .resizable()
             .aspectRatio(contentMode: .fit)
             .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
-            .frame(width: 125, height: 125)
+            .frame(width: 100, height: 100)
             .padding()
         
         // Info: Name, Email, Joined since
@@ -47,7 +47,7 @@ struct Profile: View {
                     .bold()
                 Text(user.name)
             }
-            .padding()
+            .padding(.bottom, 10)
             .font(.system(size: 20))
             
             HStack {
@@ -55,7 +55,7 @@ struct Profile: View {
                     .bold()
                 Text(user.email)
             }
-            .padding()
+            .padding(.bottom, 10)
             .font(.system(size: 20))
             
             HStack {
@@ -63,7 +63,7 @@ struct Profile: View {
                     .bold()
                 Text("\(Date(timeIntervalSince1970: user.joined).formatted(date: .abbreviated, time: .shortened))")
             }
-            .padding()
+            .padding(.bottom, 10)
             .font(.system(size: 20))
             
             HStack {
@@ -71,10 +71,19 @@ struct Profile: View {
                     .bold()
                 Text(String(user.streak))
             }
-            .padding()
+            .padding(.bottom, 10)
             .font(.system(size: 20))
           
             // Display images
+            HStack {
+                ForEach(user.images, id: \.self) { imageURL in
+                    if let url = URL(string: imageURL) {
+                        RemoteImage(url: url)
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 80, height: 80) // Adjust the size as needed
+                    }
+                }
+            }
             
         }
         .padding()
@@ -89,6 +98,22 @@ struct Profile: View {
         .scrollContentBackground(.hidden)
         
         Spacer()
+    }
+}
+
+struct RemoteImage: View {
+    let url: URL
+
+    var body: some View {
+        if let data = try? Data(contentsOf: url),
+           let uiImage = UIImage(data: data) {
+            Image(uiImage: uiImage)
+                .resizable()
+                .scaledToFit()
+        } else {
+            // Placeholder image or error handling
+            Text("Image Loading Error")
+        }
     }
 }
 
